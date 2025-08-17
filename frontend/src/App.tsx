@@ -1,42 +1,15 @@
-import React, { useState, useEffect } from "react";
-import {
-  Calendar,
-  Home,
-  Monitor,
-  Settings,
-  Users,
-  Video,
-  Bell,
-  Search,
-  Plus,
-} from "lucide-react";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "./components/ui/tabs";
+import React, { useState } from "react";
+import { Calendar, Home, Monitor, Users, Video, Bell } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { Button } from "./components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./components/ui/card";
-import { Badge } from "./components/ui/badge";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "./components/ui/avatar";
-import { Input } from "./components/ui/input";
+import { Avatar, AvatarFallback } from "./components/ui/avatar";
 import { LoginScreen } from "./components/LoginScreen";
 import { Dashboard } from "./components/Dashboard";
 import { ContentManagement } from "./components/ContentManagement";
 import { ScheduleManagement } from "./components/ScheduleManagement";
 import { DeviceManagement } from "./components/DeviceManagement";
 import { UserManagement } from "./components/UserManagement";
+import { ThemeToggle } from "./components/ThemeToggle";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,20 +32,21 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Top Navigation */}
-      <header className="bg-white border-b border-gray-200 px-4 py-3">
+      <header className="bg-background border-b border-border px-4 py-3">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Monitor className="w-5 h-5 text-white" />
             </div>
-            <h1 className="text-xl font-semibold text-gray-900">
+            <h1 className="text-xl font-semibold text-foreground">
               Digital Signage Manager
             </h1>
           </div>
 
           <div className="flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" size="sm">
               <Bell className="w-4 h-4" />
             </Button>
